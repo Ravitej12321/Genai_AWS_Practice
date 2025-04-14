@@ -1,0 +1,26 @@
+Component	AWS Service
+Embedding Model	:--------->>>   Amazon Titan Embeddings
+Foundation Model :---------->>	Bedrock LLM (Claude or Titan Text)
+Storage	:-------------------->> Amazon S3 (store PDFs, files)
+Vector DB :------------------>>	Amazon OpenSearch / FAISS
+API :------------------------>>	Flask or FastAPI on EC2 or Lambda
+Optional UI :--------------->>	Streamlit / React / PyQt (your choice)
+
+Build a system where users can ask questions
+and get context-aware answers from uploaded/custom documents using AWS-native services.
+
+*************************High-Level Workflow (RAG Architecture)*****************************
+
+            User uploads documents (PDF, text)
+
+            Documents are chunked & embedded
+
+            Embeddings stored in a vector DB
+
+            User asks a question
+
+            System embeds the query → retrieves top K chunks
+
+            LLM (Claude/Titan) generates answer using retrieved chunks
+
+            Answer is returned along with sources
